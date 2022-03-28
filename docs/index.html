@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Estructura de datos</title>
+</head>
+<body>
+    <h1>Estructura de datos</h1>
+    <br>
+    <h2>Pilas</h2>
+    <p>Es una lista ordinal o estructura de datos en la que el modo de
+        acceso a sus elementos es de tipo LIFO que permite almacenar y recuperar datos.
+        Esta estructura se aplica en multitud de ocasiones en el área de informática
+        debido a su simplicidad y ordenación implícita de la propia estructura.<br><strong>Código:</strong></p>
+
+    <blockquote>
+        <p>class Nodo:<br>
+            def __init__(self, dato):<br>
+                self.dato = dato<br>
+                self.siguiente = None<br><br>       
+        
+        class Pila:<br>
+            def __init__(self):<br>
+                self.superior = None<br>
+        
+            def apilar(self, dato):<br>
+                print(f"Agregando {dato} en la cima de la pila")<br>
+                if self.superior == None:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;self.superior = Nodo(dato)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return<br>
+                nuevo_nodo = Nodo(dato)<br>
+                nuevo_nodo.siguiente = self.superior<br>
+                self.superior = nuevo_nodo<br><br>
+        
+            def desapilar(self):<br>
+                if self.superior == None:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("No hay ningún elemento en la pila para desapilar")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return<br><br>
+        
+                print(f"Desapilar {self.superior.dato}")<br>
+                self.superior = self.superior.siguiente<br><br>
+        
+            def imprimir(self):<br>
+                print("Imprimiendo pila:")<br>
+                nodo_temporal = self.superior<br>
+                while nodo_temporal != None:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"{nodo_temporal.dato}", end=", ")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nodo_temporal = nodo_temporal.siguiente<br>
+                print("")<br><br>
+        
+        <strong>#Uso de la pila</strong><br>
+        pila = Pila()<br><br>
+
+        <strong>#Añadir</strong><br>
+        pila.apilar("Caja 1")<br>
+        pila.apilar("Caja 2")<br>
+        pila.apilar("Caja 3")<br><br>
+        <strong>#Mostrar</strong><br>
+        pila.imprimir()<br><br>
+        <strong>#Eliminar</strong><br>
+        pila.desapilar()<br><br>
+        
+        pila.imprimir()<br><br>
+        
+        pila.apilar("Caja 4")<br><br>
+        
+        pila.imprimir()
+        <cite><a href="pilas.py" download="">Ir al archivo</a></cite></p>
+    </blockquote>    
+
+    <div style="text-align:center;" >
+        <iframe width="560" height="315" src="VideoPilas.mp4" aria-controls="" controls=""></iframe>
+    </div>
+    
+    <h2>Colas</h2>
+    <p>Es una estructura de datos, caracterizada por ser una secuencia de elementos en
+        la que la operación de inserción push se realiza por un extremo y la operación
+        de extracción pop por el otro.<br><strong>Código:</strong></p>
+
+        <blockquote>
+            <p>
+                from collections import deque<br><br>
+
+                <strong>#Definir cola</strong><br>
+                canciones = deque()<br><br>
+
+                <strong>#Agregar</strong><br>
+                canciones.append("Si veo a tu mamá")<br>
+                canciones.append("La canción")<br>
+                canciones.append("Yonaguni")<br>
+                canciones.append("Baby oh")<br><br>
+
+                <strong>#Editar</strong><br>
+                itemAReemplazar = 'Yonaguni'<br>
+                nuevoValor = 'La Santa'<br>
+                for index, item in enumerate(canciones):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if item == itemAReemplazar:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canciones[index] = nuevoValor<br><br>
+
+                <strong>#Eliminar</strong><br>
+                canciones.pop()<br><br>
+
+                <strong>#Mostrar</strong><br>
+                cancion_siguiente = canciones.pop()<br>
+                print("Siguiente canción: " + cancion_siguiente) <br><br>
+
+                cancion_pasada = canciones.pop()<br>
+                print("Canción sonando: " + cancion_pasada)<br> 
+                <cite><a href="colas.py" download="">Ir al archivo</a></cite></p>
+            </p>
+        </blockquote>    
+            
+    <div style="text-align:center;" >
+        <iframe width="560" height="315" src="VideoColas.mp4" aria-controls="" controls=""></iframe>
+    </div>
+    
+    <h2>Listas</h2>
+    <p>Es una estructura dinámica de
+        datos que contiene una colección de elementos homogéneos (del mismo tipo) de
+        manera que se establece entre ellos un orden. Es decir, cada elemento, menos el
+        primero, tiene un predecesor, y cada elemento, menos el último, tiene un
+        sucesor.<br><strong>Código:</strong></p>
+
+        <blockquote>
+            <p>
+                <strong>#Inicializar lista</strong><br>
+                superheroes = []<br><br>
+
+                <strong>#Agregar</strong><br>
+                superheroes.append('Iron Man')<br>
+                superheroes.append('Spiderman')<br>
+                superheroes.append('Hulk')<br><br>
+
+                <strong>#Editar</strong><br>
+                itemAReemplazar = 'Iron Man'<br>
+                nuevoValor = 'Mark V'<br>
+                for index, item in enumerate(superheroes):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if item == itemAReemplazar:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;superheroes[index] = nuevoValor<br><br>
+
+                <strong>#Eliminar</strong><br>
+                superheroes.pop(2)<br><br>
+
+                <strong>#Mostrar</strong><br>
+                print('Mis superheroes favoritos: ')<br>
+                for e in superheroes:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(e)<br>
+                <cite><a href="listas.py" download="">Ir al archivo</a></cite></p>
+            </p>
+        </blockquote>    
+    <div style="text-align:center;" >
+        <iframe width="560" height="315" src="VideoListas.mp4" aria-controls="" controls=""></iframe>
+    </div>
+</body>
+</html>
